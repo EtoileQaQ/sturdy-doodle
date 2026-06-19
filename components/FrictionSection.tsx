@@ -1,7 +1,10 @@
+import { Fragment } from "react";
 import { OpenQuoteButton } from "@/components/OpenQuoteButton";
 import { frictionComparisons, frictionQuote } from "@/lib/data";
 
 export function FrictionSection() {
+  const rowCount = frictionComparisons.length + 1;
+
   return (
     <section className="section section--soft friction-section" id="friction">
       <div className="container">
@@ -17,37 +20,58 @@ export function FrictionSection() {
           className="friction-board"
           role="region"
           aria-label="Comparaison avec et sans agence spécialisée"
-          style={{ "--friction-rows": frictionComparisons.length } as React.CSSProperties}
+          style={
+            {
+              "--friction-rows": frictionComparisons.length,
+              "--friction-row-span": rowCount,
+            } as React.CSSProperties
+          }
         >
-          <div className="friction-board__col friction-board__col--before">
-            <div className="friction-board__head">
-              <span className="friction-board__label friction-board__label--before">Sans nous</span>
-              <h3>Seul·e face à l&apos;organisation</h3>
-            </div>
-            {frictionComparisons.map((row) => (
-              <div className="friction-board__item" key={row.before}>
-                <span className="friction-board__icon friction-board__icon--no" aria-hidden="true">✗</span>
-                <span>{row.before}</span>
-              </div>
-            ))}
+          <div
+            className="friction-board__head friction-board__cell--before"
+            style={{ gridColumn: 1, gridRow: 1 }}
+          >
+            <span className="friction-board__label friction-board__label--before">Sans nous</span>
+            <h3>Seul·e face à l&apos;organisation</h3>
           </div>
 
-          <div className="friction-board__divider" aria-hidden="true">
+          <div
+            className="friction-board__divider"
+            style={{ gridColumn: 2, gridRow: `1 / span ${rowCount}` }}
+            aria-hidden="true"
+          >
             <span className="friction-board__pill">VS</span>
           </div>
 
-          <div className="friction-board__col friction-board__col--after">
-            <div className="friction-board__head">
-              <span className="friction-board__label friction-board__label--after">Avec nous</span>
-              <h3>Horizons Sans Frontières</h3>
-            </div>
-            {frictionComparisons.map((row) => (
-              <div className="friction-board__item" key={row.after}>
-                <span className="friction-board__icon friction-board__icon--yes" aria-hidden="true">✓</span>
-                <span>{row.after}</span>
-              </div>
-            ))}
+          <div
+            className="friction-board__head friction-board__cell--after"
+            style={{ gridColumn: 3, gridRow: 1 }}
+          >
+            <span className="friction-board__label friction-board__label--after">Avec nous</span>
+            <h3>Horizons Sans Frontières</h3>
           </div>
+
+          {frictionComparisons.map((row, index) => {
+            const isLast = index === frictionComparisons.length - 1;
+            return (
+              <Fragment key={row.before}>
+                <div
+                  className={`friction-board__item friction-board__cell--before${isLast ? " friction-board__item--last" : ""}`}
+                  style={{ gridColumn: 1, gridRow: index + 2 }}
+                >
+                  <span className="friction-board__icon friction-board__icon--no" aria-hidden="true">✗</span>
+                  <span>{row.before}</span>
+                </div>
+                <div
+                  className={`friction-board__item friction-board__cell--after${isLast ? " friction-board__item--last" : ""}`}
+                  style={{ gridColumn: 3, gridRow: index + 2 }}
+                >
+                  <span className="friction-board__icon friction-board__icon--yes" aria-hidden="true">✓</span>
+                  <span>{row.after}</span>
+                </div>
+              </Fragment>
+            );
+          })}
         </div>
 
         <div className="friction-bottom">
