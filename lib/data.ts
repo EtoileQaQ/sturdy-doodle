@@ -169,6 +169,35 @@ export const valueProcess = [
   { label: "Vous partez l'esprit léger", detail: "Chaque détail est anticipé" },
 ] as const;
 
+export const frictionComparisons = [
+  {
+    before: "20 appels pour savoir si la douche est vraiment de plain-pied",
+    after: "Accessibilité mesurée sur place, photos à l'appui",
+  },
+  {
+    before: "Un « hôtel accessible » qui a 3 marches à l'entrée",
+    after: "Chaîne complète garantie : du trottoir à la chambre",
+  },
+  {
+    before: "Transferts non adaptés découverts le jour J",
+    after: "Transferts adaptés réservés et confirmés à l'avance",
+  },
+  {
+    before: "Aucun recours si ça se passe mal sur place",
+    after: "Conseiller joignable 7j/7 pendant tout le séjour",
+  },
+  {
+    before: "Le stress de tout vérifier soi-même, seul·e",
+    after: "Satisfaction garantie 30 jours ou remboursé",
+  },
+] as const;
+
+export const frictionQuote = {
+  text: "« J'ai arrêté de tout vérifier moi-même. Pour la première fois, je me suis sentie attendue — pas tolérée. »",
+  author: "Sophie, 41 ans",
+  context: "En fauteuil roulant · Séville",
+} as const;
+
 export const partners = [
   "APF France handicap",
   "L'ADAPT",
