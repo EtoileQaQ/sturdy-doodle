@@ -3,80 +3,71 @@ import { frictionComparisons, frictionQuote } from "@/lib/data";
 
 export function FrictionSection() {
   return (
-    <section className="section friction-section" id="friction">
+    <section className="section section--soft friction-section" id="friction">
       <div className="container">
-        <div className="friction-header">
+        <div className="friction-header center">
           <p className="eyebrow">La friction, résolue</p>
           <h2>Organiser un voyage PMR, c&apos;était l&apos;enfer.<br />On l&apos;a rendu simple.</h2>
-          <p className="lead friction-header__lead">
-            Chaque ligne ci-dessous, c&apos;est une galère qu&apos;on a déjà vue — et qu&apos;on élimine pour vous.
+          <p className="lead">
+            Même situation, deux expériences. Voici ce qui change quand vous passez par une agence 100&nbsp;% PMR.
           </p>
         </div>
 
-        <div className="friction-compare" role="region" aria-label="Comparaison avec et sans agence spécialisée">
-          <div className="friction-compare__labels" aria-hidden="true">
-            <span className="friction-label friction-label--before">Sans agence spécialisée</span>
-            <span className="friction-label friction-label--vs" />
-            <span className="friction-label friction-label--after">Avec Horizons Sans Frontières</span>
+        <div className="friction-board" role="region" aria-label="Comparaison avec et sans agence spécialisée">
+          <div className="friction-board__col friction-board__col--before">
+            <div className="friction-board__head">
+              <span className="friction-board__label">Sans nous</span>
+              <h3>Seul·e face à l&apos;organisation</h3>
+            </div>
+            <ul className="friction-board__list">
+              {frictionComparisons.map((row) => (
+                <li key={row.before}>
+                  <span className="friction-board__icon friction-board__icon--no" aria-hidden="true">✗</span>
+                  <span>{row.before}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <ol className="friction-rows">
-            {frictionComparisons.map((row) => (
-              <li className="friction-row" key={row.before}>
-                <div className="friction-row__before">
-                  <span className="friction-row__mark friction-row__mark--no" aria-hidden="true">✗</span>
-                  <span>
-                    <span className="sr-only">Sans agence : </span>
-                    {row.before}
-                  </span>
-                </div>
-                <div className="friction-row__vs" aria-hidden="true">
-                  <span className="friction-row__vs-label">Devient</span>
-                  <span className="friction-row__arrow">→</span>
-                </div>
-                <div className="friction-row__after">
-                  <span className="friction-row__mark friction-row__mark--yes" aria-hidden="true">✓</span>
-                  <span>
-                    <span className="sr-only">Avec Horizons Sans Frontières : </span>
-                    {row.after}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <div className="friction-board__divider" aria-hidden="true">
+            <span className="friction-board__pill">VS</span>
+          </div>
+
+          <div className="friction-board__col friction-board__col--after">
+            <div className="friction-board__head">
+              <span className="friction-board__label friction-board__label--gold">Avec nous</span>
+              <h3>Horizons Sans Frontières</h3>
+            </div>
+            <ul className="friction-board__list">
+              {frictionComparisons.map((row) => (
+                <li key={row.after}>
+                  <span className="friction-board__icon friction-board__icon--yes" aria-hidden="true">✓</span>
+                  <span>{row.after}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div className="friction-footer">
-          <blockquote className="friction-quote">
+        <div className="friction-bottom">
+          <blockquote className="friction-bottom__quote">
             <p>{frictionQuote.text}</p>
             <footer>
               <cite>{frictionQuote.author}</cite>
-              <span className="friction-quote__ctx">{frictionQuote.context}</span>
+              <span>{frictionQuote.context}</span>
             </footer>
           </blockquote>
 
-          <div className="friction-cta">
-            <div className="friction-cta__stats">
-              <p className="friction-cta__stat">
-                <strong>15+ heures</strong>
-                <span>de préparation économisées en moyenne</span>
-              </p>
-              <p className="friction-cta__stat">
-                <strong>0</strong>
-                <span>mauvaise surprise constatée sur place*</span>
-              </p>
-            </div>
-            <div className="friction-cta__action">
-              <p className="friction-cta__title">Arrêtez de tout gérer seul·e.</p>
-              <OpenQuoteButton className="btn btn--primary btn--lg">
-                Obtenir mon devis gratuit →
-              </OpenQuoteButton>
-              <p className="friction-cta__note">Sans engagement · Devis en 48h · Garantie 30 jours</p>
-            </div>
+          <div className="friction-bottom__cta">
+            <p className="friction-bottom__title">Passez du stress à la sérénité.</p>
+            <p className="friction-bottom__sub">
+              15+ heures de préparation économisées · Devis en 48h · Garantie 30 jours
+            </p>
+            <OpenQuoteButton className="btn btn--primary btn--lg">
+              Obtenir mon devis gratuit →
+            </OpenQuoteButton>
           </div>
         </div>
-
-        <p className="friction-fine">* Sur les voyages réservés via nos formules Escapade et Grand Voyage, audit accessibilité complet inclus.</p>
       </div>
     </section>
   );
