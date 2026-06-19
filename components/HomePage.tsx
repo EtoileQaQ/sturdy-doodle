@@ -8,9 +8,9 @@ import { GuideForm } from "@/components/GuideForm";
 import { FaqSection } from "@/components/FaqSection";
 import { Reveal } from "@/components/Reveal";
 import { FrictionSection } from "@/components/FrictionSection";
-import { ValueSection } from "@/components/ValueSection";
 import { DestinationsSection } from "@/components/DestinationsSection";
-import { destinations, reviews } from "@/lib/data";
+import { ValueSection } from "@/components/ValueSection";
+import { reviews } from "@/lib/data";
 
 export function HomePage() {
   return (
@@ -54,33 +54,7 @@ export function HomePage() {
         </Reveal>
 
         <Reveal delay={80}>
-        <section className="section section--soft" id="destinations">
-          <div className="container">
-            <div className="center">
-              <p className="eyebrow">Destinations testées et approuvées</p>
-              <h2>Des voyages vérifiés, pas juste vendus</h2>
-            </div>
-            <div className="dest-grid" style={{ marginTop: "2.8rem" }}>
-              {destinations.map((d) => (
-                <article className="dest" key={d.slug}>
-                  <span className="dest__badge"><span className="bullet" aria-hidden="true">●</span> {d.badge}</span>
-                  <Image className="dest__img" src={d.image} alt={d.alt} width={800} height={550} />
-                  <div className="dest__body">
-                    <h3>{d.name}</h3>
-                    <p className="dest__meta">{d.meta}</p>
-                    <div className="dest__foot">
-                      <span className="dest__price">dès {d.price} €<small>par jour / personne</small></span>
-                      <OpenQuoteButton className="btn btn--ocean btn--sm" dest={d.name}>Découvrir</OpenQuoteButton>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <p className="center" style={{ marginTop: "2rem", color: "var(--ink-soft)" }}>
-              <strong>⏳ Départs groupés à places limitées :</strong> il reste <strong>6 places</strong> sur l&apos;Andalousie de mai et <strong>4 places</strong> sur les Cyclades de juin.
-            </p>
-          </div>
-        </section>
+        <DestinationsSection />
         </Reveal>
 
         <Reveal>
