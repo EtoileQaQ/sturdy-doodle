@@ -1,0 +1,134 @@
+export const images = {
+  hero:
+    "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=1000&fit=crop&q=80",
+  reviews: {
+    sophie:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&q=80",
+    karim:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&q=80",
+    daniel:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=96&h=96&fit=crop&q=80",
+  },
+} as const;
+
+export const destinations = [
+  {
+    slug: "venise",
+    name: "Venise & Vénétie",
+    meta: "Italie · 6 jours · vaporettos et hôtels adaptés",
+    price: "138",
+    badge: "Accessibilité totale",
+    image:
+      "https://images.unsplash.com/photo-1514890245-9f4bedc241fb?w=800&h=550&fit=crop&q=80",
+    alt: "Vue des canaux de Venise au coucher du soleil avec un pont accessible.",
+  },
+  {
+    slug: "andalousie",
+    name: "Andalousie balnéaire",
+    meta: "Espagne · 8 jours · plage accessible & tiralo",
+    price: "119",
+    badge: "Accessibilité totale",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=550&fit=crop&q=80",
+    alt: "Plage de sable doré en Andalousie avec accès aménagé et tiralo.",
+  },
+  {
+    slug: "norvege",
+    name: "Fjords de Norvège",
+    meta: "Norvège · 7 jours · croisière à cabines PMR",
+    price: "184",
+    badge: "Bonne accessibilité",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=550&fit=crop&q=80",
+    alt: "Fjord norvégien avec ponton accessible et montagnes enneigées.",
+  },
+  {
+    slug: "lisbonne",
+    name: "Lisbonne & Sintra",
+    meta: "Portugal · 5 jours · tramways et palais adaptés",
+    price: "109",
+    badge: "Accessibilité totale",
+    image:
+      "https://images.unsplash.com/photo-1555881403-63b50c0c7e08?w=800&h=550&fit=crop&q=80",
+    alt: "Ruelle fleurie de Lisbonne avec tramway adapté.",
+  },
+  {
+    slug: "provence",
+    name: "Provence & lavandes",
+    meta: "France · 4 jours · circuit doux en minibus adapté",
+    price: "96",
+    badge: "Bonne accessibilité",
+    image:
+      "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=800&h=550&fit=crop&q=80",
+    alt: "Champs de lavande en Provence avec chemin stabilisé accessible.",
+  },
+  {
+    slug: "cyclades",
+    name: "Cyclades accessibles",
+    meta: "Grèce · 7 jours · ferries et hôtels avec ascenseur",
+    price: "152",
+    badge: "Accessibilité totale",
+    image:
+      "https://images.unsplash.com/photo-1613395877344-13f4a8fcaa25?w=800&h=550&fit=crop&q=80",
+    alt: "Maisons colorées d'un port grec avec quai accessible et mer turquoise.",
+  },
+] as const;
+
+export const reviews = [
+  {
+    quote:
+      "« Pour la première fois depuis mon accident, j'ai voyagé sans rien anticiper moi-même. La chambre était exactement comme sur les photos. Je me suis sentie attendue, pas tolérée. »",
+    name: "Sophie, 41 ans",
+    ctx: "En fauteuil roulant · Séville",
+    avatar: images.reviews.sophie,
+    alt: "Portrait de Sophie",
+  },
+  {
+    quote:
+      "« J'accompagne ma mère, 82 ans, à mobilité réduite. Tout était pensé : rythme adapté, transferts doux, un conseiller qui répondait à 22h quand j'avais un doute. Un vrai soulagement. »",
+    name: "Karim, 49 ans",
+    ctx: "Aidant familial · Lisbonne",
+    avatar: images.reviews.karim,
+    alt: "Portrait de Karim",
+  },
+  {
+    quote:
+      "« Malvoyant, je redoutais l'aéroport. L'assistance était coordonnée de bout en bout, on m'a tout décrit, jamais infantilisé. Je repars avec eux en septembre. »",
+    name: "Daniel, 58 ans",
+    ctx: "Déficience visuelle · Crète",
+    avatar: images.reviews.daniel,
+    alt: "Portrait de Daniel",
+  },
+] as const;
+
+export const faqItems = [
+  {
+    q: "Et si la chambre n'est pas vraiment accessible une fois sur place ?",
+    a: "Ça n'arrive pas, parce qu'on ne se contente pas du mot « accessible » du prestataire. Chaque hébergement est audité avec mesures et photos (largeur de porte, douche de plain-pied, hauteur du lit). Et si malgré tout quelque chose ne correspond pas, notre conseiller intervient immédiatement et vous reloge sur place, sans frais.",
+  },
+  {
+    q: "Puis-je annuler ou être remboursé si ma santé change ?",
+    a: "Oui. Toutes nos formules incluent une annulation flexible, et notre garantie « satisfait ou remboursé 30 jours » s'applique. En cas d'aggravation médicale justifiée, l'annulation est prise en charge par l'assurance adaptée incluse. On vous explique tout noir sur blanc avant que vous ne signiez quoi que ce soit.",
+  },
+  {
+    q: "Je voyage avec un aidant / un soignant. C'est prévu ?",
+    a: "Absolument. Nous organisons les séjours pour le voyageur ET son ou ses accompagnants : chambres communicantes, tarifs aidant réduits, et la possibilité d'ajouter un soignant professionnel sur la formule Grand Voyage. Dites-nous votre configuration, on s'adapte.",
+  },
+  {
+    q: "Combien ça coûte vraiment, et puis-je être aidé financièrement ?",
+    a: "Nos formules démarrent à 89 € par jour et par personne, tout compris, sans frais cachés. Selon votre situation, une partie peut être financée : aides MDPH, prestations CAF, mutuelles, comités d'entreprise. Notre conseiller vous aide à identifier vos droits et à monter le dossier — c'est gratuit.",
+  },
+  {
+    q: "Le devis m'engage-t-il à quelque chose ?",
+    a: "Aucun engagement. Le devis est 100% gratuit, livré sous 48h, et l'accompagnement personnalisé pour le construire est offert. Vous décidez ensuite, tranquillement, sans pression ni relance insistante.",
+  },
+] as const;
+
+export const partners = [
+  "APF France handicap",
+  "L'ADAPT",
+  "Tourisme & Handicap",
+  "Le Monde",
+  "France Inter",
+  "Handicap.fr",
+] as const;
