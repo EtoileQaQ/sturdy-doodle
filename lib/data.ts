@@ -124,6 +124,51 @@ export const faqItems = [
   },
 ] as const;
 
+export const valuePillars = [
+  {
+    step: "01",
+    title: "Transports adaptés",
+    outcome: "Du domicile à la destination, sans rupture de chaîne.",
+    bullets: [
+      "Véhicules avec rampe, trains et vols assistés",
+      "Transferts porte-à-porte réservés à l'avance",
+      "Chaque maillon vérifié — pas seulement l'hôtel",
+    ],
+    icon: "transport",
+    featured: false,
+  },
+  {
+    step: "02",
+    title: "Hébergements certifiés",
+    outcome: "Des chambres vraiment PMR, pas « accessibles » sur le papier.",
+    bullets: [
+      "Douche de plain-pied, portes et lits mesurés",
+      "Photos et dimensions vérifiées sur place",
+      "Audit selon référentiel Tourisme & Handicap",
+    ],
+    icon: "hotel",
+    featured: true,
+  },
+  {
+    step: "03",
+    title: "Accompagnement humain",
+    outcome: "Une personne dédiée, du devis jusqu'au retour.",
+    bullets: [
+      "Un conseiller unique qui connaît votre dossier",
+      "Joignable 7j/7 pendant tout le séjour",
+      "Satisfaction garantie 30 jours ou remboursé",
+    ],
+    icon: "support",
+    featured: false,
+  },
+] as const;
+
+export const valueProcess = [
+  { label: "Vous décrivez votre situation", detail: "2 minutes, sans engagement" },
+  { label: "On vérifie tout pour vous", detail: "Devis personnalisé sous 48h" },
+  { label: "Vous partez l'esprit léger", detail: "Chaque détail est anticipé" },
+] as const;
+
 export const partners = [
   "APF France handicap",
   "L'ADAPT",
