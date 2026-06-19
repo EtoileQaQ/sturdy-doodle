@@ -70,27 +70,26 @@ export function SiteHeader() {
       id="header"
     >
       <div className="container header__bar">
-        <div className="header__start">
-          <a className="brand" href="#" aria-label="Horizons Sans Frontières, accueil">
-            <BrandLogo />
-            <span className="brand__name">
-              Horizons Sans Frontières
-              <small className="brand__tagline">Voyager sans limite. Pour tout le monde.</small>
-            </span>
-          </a>
+        <a className="brand" href="#" aria-label="Horizons Sans Frontières, accueil">
+          <BrandLogo />
+          <span className="brand__name">
+            Horizons Sans Frontières
+            <small className="brand__tagline">Voyager sans limite. Pour tout le monde.</small>
+          </span>
+        </a>
 
-          <nav className="header__nav" aria-label="Navigation principale">
-            <ul className="header__links">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href}>{link.label}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        <nav className="header__nav" aria-label="Navigation principale">
+          <ul className="header__links">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-        <div className="header__cta-zone">
+        <div className="header__end">
+          <div className="header__cta-zone">
           <div className="header__trust" aria-label="Note et délai de réponse">
             <span className="header__trust-stars" aria-hidden="true">★★★★★</span>
             <span>
@@ -114,9 +113,9 @@ export function SiteHeader() {
             <span>Devis gratuit</span>
             <span className="btn__arrow" aria-hidden="true">→</span>
           </OpenQuoteButton>
-        </div>
+          </div>
 
-        <div className="header__mobile-actions">
+          <div className="header__mobile-actions">
           <a
             className="header__phone-mobile"
             href={PHONE_HREF}
@@ -139,6 +138,7 @@ export function SiteHeader() {
               <span />
             </span>
           </button>
+        </div>
         </div>
       </div>
 
