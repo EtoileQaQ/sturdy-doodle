@@ -284,6 +284,8 @@ ul { margin: 0; padding: 0; }
 .site-header--scrolled {
   box-shadow: var(--shadow);
 }
+.site-header--scrolled .brand__tagline { display: none; }
+.site-header--scrolled .header__bar { padding-block: .55rem; }
 
 .header__bar {
   display: flex;
