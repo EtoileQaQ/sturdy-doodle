@@ -70,23 +70,25 @@ export function SiteHeader() {
       id="header"
     >
       <div className="container header__bar">
-        <a className="brand" href="#" aria-label="Horizons Sans Frontières, accueil">
-          <BrandLogo />
-          <span className="brand__name">
-            Horizons Sans Frontières
-            <small className="brand__tagline">Voyager sans limite. Pour tout le monde.</small>
-          </span>
-        </a>
+        <div className="header__start">
+          <a className="brand" href="#" aria-label="Horizons Sans Frontières, accueil">
+            <BrandLogo />
+            <span className="brand__name">
+              Horizons Sans Frontières
+              <small className="brand__tagline">Voyager sans limite. Pour tout le monde.</small>
+            </span>
+          </a>
 
-        <nav className="header__nav" aria-label="Navigation principale">
-          <ul className="header__links">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a href={link.href}>{link.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <nav className="header__nav" aria-label="Navigation principale">
+            <ul className="header__links">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
 
         <div className="header__cta-zone">
           <div className="header__trust" aria-label="Note et délai de réponse">
