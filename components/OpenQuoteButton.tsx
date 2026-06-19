@@ -8,9 +8,10 @@ type Props = {
   className?: string;
   dest?: string;
   plan?: string;
+  onOpen?: () => void;
 };
 
-export function OpenQuoteButton({ children, className, dest, plan }: Props) {
+export function OpenQuoteButton({ children, className, dest, plan, onOpen }: Props) {
   const { openQuote } = useQuote();
 
   const handleClick = (e: MouseEvent) => {
@@ -19,6 +20,7 @@ export function OpenQuoteButton({ children, className, dest, plan }: Props) {
     if (dest) prefill.dest = dest;
     if (plan) prefill.plan = plan;
     openQuote(prefill);
+    onOpen?.();
   };
 
   return (
