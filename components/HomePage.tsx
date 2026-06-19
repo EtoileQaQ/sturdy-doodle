@@ -7,6 +7,7 @@ import { OpenQuoteButton } from "@/components/OpenQuoteButton";
 import { GuideForm } from "@/components/GuideForm";
 import { FaqSection } from "@/components/FaqSection";
 import { Reveal } from "@/components/Reveal";
+import { ValueSection } from "@/components/ValueSection";
 import { destinations, reviews } from "@/lib/data";
 
 export function HomePage() {
@@ -19,27 +20,7 @@ export function HomePage() {
         <LogoMarquee />
 
         <Reveal>
-        <section className="section" id="valeur">
-          <div className="container">
-            <div className="center">
-              <p className="eyebrow">Ce que nous gérons pour vous</p>
-              <h2>Tout est prévu. Vous n&apos;avez qu&apos;à profiter.</h2>
-              <p className="lead">Trois piliers, zéro mauvaise surprise. Du transport adapté à l&apos;accompagnement humain, chaque détail est vérifié avant votre départ.</p>
-            </div>
-            <div className="cards-3" style={{ marginTop: "2.8rem" }}>
-              {[
-                { title: "Transports adaptés", text: "Véhicules avec rampe, trains et vols assistés, transferts porte-à-porte. On vérifie chaque maillon de la chaîne d'accessibilité, pas juste l'hôtel." },
-                { title: "Hébergements certifiés", text: "Chambres réellement PMR : douche de plain-pied, largeur de porte mesurée, lit à bonne hauteur. Photos et dimensions vérifiées sur place." },
-                { title: "Accompagnement humain dédié", text: "Un conseiller unique du devis au retour, joignable 7j/7 pendant le séjour. Une vraie personne qui connaît votre dossier, jamais un standard anonyme." },
-              ].map((c) => (
-                <article className="vcard" key={c.title}>
-                  <h3>{c.title}</h3>
-                  <p>{c.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ValueSection />
         </Reveal>
 
         <Reveal delay={80}>
