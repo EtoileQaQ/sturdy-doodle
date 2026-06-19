@@ -13,20 +13,23 @@ export function FrictionSection() {
           </p>
         </div>
 
-        <div className="friction-board" role="region" aria-label="Comparaison avec et sans agence spécialisée">
+        <div
+          className="friction-board"
+          role="region"
+          aria-label="Comparaison avec et sans agence spécialisée"
+          style={{ "--friction-rows": frictionComparisons.length } as React.CSSProperties}
+        >
           <div className="friction-board__col friction-board__col--before">
             <div className="friction-board__head">
-              <span className="friction-board__label">Sans nous</span>
+              <span className="friction-board__label friction-board__label--before">Sans nous</span>
               <h3>Seul·e face à l&apos;organisation</h3>
             </div>
-            <ul className="friction-board__list">
-              {frictionComparisons.map((row) => (
-                <li key={row.before}>
-                  <span className="friction-board__icon friction-board__icon--no" aria-hidden="true">✗</span>
-                  <span>{row.before}</span>
-                </li>
-              ))}
-            </ul>
+            {frictionComparisons.map((row) => (
+              <div className="friction-board__item" key={row.before}>
+                <span className="friction-board__icon friction-board__icon--no" aria-hidden="true">✗</span>
+                <span>{row.before}</span>
+              </div>
+            ))}
           </div>
 
           <div className="friction-board__divider" aria-hidden="true">
@@ -35,17 +38,15 @@ export function FrictionSection() {
 
           <div className="friction-board__col friction-board__col--after">
             <div className="friction-board__head">
-              <span className="friction-board__label friction-board__label--gold">Avec nous</span>
+              <span className="friction-board__label friction-board__label--after">Avec nous</span>
               <h3>Horizons Sans Frontières</h3>
             </div>
-            <ul className="friction-board__list">
-              {frictionComparisons.map((row) => (
-                <li key={row.after}>
-                  <span className="friction-board__icon friction-board__icon--yes" aria-hidden="true">✓</span>
-                  <span>{row.after}</span>
-                </li>
-              ))}
-            </ul>
+            {frictionComparisons.map((row) => (
+              <div className="friction-board__item" key={row.after}>
+                <span className="friction-board__icon friction-board__icon--yes" aria-hidden="true">✓</span>
+                <span>{row.after}</span>
+              </div>
+            ))}
           </div>
         </div>
 
