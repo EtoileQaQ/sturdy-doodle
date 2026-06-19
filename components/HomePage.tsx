@@ -9,6 +9,7 @@ import { FaqSection } from "@/components/FaqSection";
 import { Reveal } from "@/components/Reveal";
 import { FrictionSection } from "@/components/FrictionSection";
 import { ValueSection } from "@/components/ValueSection";
+import { DestinationsSection } from "@/components/DestinationsSection";
 import { destinations, reviews } from "@/lib/data";
 
 export function HomePage() {
