@@ -840,100 +840,103 @@ ul { margin: 0; padding: 0; }
 .friction-header .lead { margin-inline: auto; }
 
 .friction-board {
+  --friction-rows: 5;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 0;
+  grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+  grid-template-rows: auto repeat(var(--friction-rows), minmax(3.25rem, auto));
   align-items: stretch;
-  position: relative;
+  max-width: 100%;
 }
 
 .friction-board__col {
-  background: #fff;
-  border: 1px solid var(--line);
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / -1;
   border-radius: var(--radius);
-  padding: clamp(1.5rem, 3vw, 2rem);
-  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--line);
 }
 .friction-board__col--before {
-  border-top: 3px solid var(--line);
+  grid-column: 1;
+  background: #fff4f3;
+  border-color: #f4cfca;
 }
 .friction-board__col--after {
-  border-top: 3px solid var(--gold);
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  z-index: 1;
+  grid-column: 3;
+  background: #effaf3;
+  border-color: #bfe6cf;
 }
 
 .friction-board__head {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--line);
+  padding: 1.35rem 1.5rem 1.1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, .06);
 }
+.friction-board__col--before .friction-board__head {
+  background: rgba(255, 255, 255, .45);
+  border-bottom-color: #f4cfca;
+}
+.friction-board__col--after .friction-board__head {
+  background: rgba(255, 255, 255, .5);
+  border-bottom-color: #bfe6cf;
+}
+
 .friction-board__label {
   display: inline-block;
   font-size: .72rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--ink-soft);
-  margin-bottom: .45rem;
+  margin-bottom: .4rem;
 }
-.friction-board__label--gold { color: var(--gold-dark); }
+.friction-board__label--before { color: var(--danger); }
+.friction-board__label--after { color: var(--success); }
 .friction-board__head h3 {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: var(--ocean-900);
 }
 
-.friction-board__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: .85rem;
-}
-.friction-board__list li {
+.friction-board__item {
   display: flex;
   gap: .75rem;
   align-items: flex-start;
+  padding: .95rem 1.5rem;
   font-size: .96rem;
-  line-height: 1.5;
-  color: var(--ink-soft);
-  min-height: 3.2rem;
+  line-height: 1.48;
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
 }
-.friction-board__col--after .friction-board__list li {
+.friction-board__col--before .friction-board__item {
+  color: var(--ink);
+}
+.friction-board__col--after .friction-board__item {
   color: var(--ink);
   font-weight: 500;
 }
+.friction-board__item:last-child { border-bottom: 0; }
+
 .friction-board__icon {
   flex: none;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: .7rem;
+  font-size: .72rem;
   font-weight: 900;
-  margin-top: 3px;
+  color: #fff;
+  margin-top: 2px;
 }
-.friction-board__icon--no {
-  background: var(--ocean-50);
-  color: var(--ink-soft);
-  border: 1px solid var(--line);
-}
-.friction-board__icon--yes {
-  background: #effaf3;
-  color: var(--success);
-}
+.friction-board__icon--no { background: var(--danger); }
+.friction-board__icon--yes { background: var(--success); }
 
 .friction-board__divider {
+  grid-column: 2;
+  grid-row: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  margin-inline: -.24rem;
   z-index: 2;
-  flex-shrink: 0;
+  pointer-events: none;
 }
 .friction-board__pill {
   display: grid;
@@ -944,10 +947,11 @@ ul { margin: 0; padding: 0; }
   background: var(--ocean);
   color: var(--gold);
   font-weight: 900;
-  font-size: .75rem;
+  font-size: .72rem;
   letter-spacing: .04em;
   border: 3px solid var(--ocean-50);
   box-shadow: var(--shadow);
+  flex-shrink: 0;
 }
 
 .friction-bottom {
@@ -1009,22 +1013,41 @@ ul { margin: 0; padding: 0; }
   line-height: 1.45;
 }
 
+/* Subgrid fallback : colonnes même hauteur */
+@supports not (grid-template-rows: subgrid) {
+  .friction-board {
+    grid-template-rows: none;
+    grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+  }
+  .friction-board__col {
+    grid-row: auto;
+    grid-template-rows: none;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 880px) {
   .friction-board {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-rows: none;
+    gap: .75rem;
   }
+  .friction-board__col {
+    grid-column: 1;
+    grid-row: auto;
+    grid-template-rows: none;
+    display: block;
+  }
+  .friction-board__col--before { order: 1; }
+  .friction-board__col--after { order: 3; }
   .friction-board__divider {
-    width: auto;
-    margin: 0;
-    padding: .25rem 0;
+    grid-column: 1;
+    grid-row: auto;
+    order: 2;
+    padding: .15rem 0;
+    pointer-events: none;
   }
-  .friction-board__pill {
-    width: 36px;
-    height: 36px;
-    font-size: .7rem;
-  }
-  .friction-board__list li { min-height: auto; }
   .friction-bottom {
     grid-template-columns: 1fr;
     gap: 1.5rem;
